@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Proyecto_moviles</string>
+
+    <string name="login">Ingresar</string>
+    <string name="login_redirection">¿ya tienes cuenta?</string>
+
+    <string name="register">Registrarse</string>
+    <string name="register_redirection">¿no tienes cuenta?</string>
+
+    <string name="User">Nombre de usuario</string>
+    <string name="Pass">Contraseña</string>
+    <string name="email">Email@mail.com</string>
+    <string name="tel">Celular</string>
+
+    <string name="Submit_login">ingresar</string>
+    <string name="Submit_register">registrarse</string>
+</resources>
