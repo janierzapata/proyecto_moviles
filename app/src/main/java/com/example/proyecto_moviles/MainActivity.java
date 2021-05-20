@@ -2,41 +2,123 @@ package com.example.proyecto_moviles;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+import android.app.VoiceInteractor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 
-public class MainActivity extends AppCompatActivity {
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    private EditText name;
-    private EditText pass;
-    private EditText tel;
-    private EditText email;
+    EditText User_name;
+    EditText User_pass;
+    EditText User_tel;
+    EditText User_email;
+    Button btnregistrar;
+
+    RequestQueue requestQueue;
+
+    private static final String URL1 = "http://192.168.56.1/proyectapp/save.php";
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.activity_registrar);
 
-        name = (EditText) findViewById(R.id.User_name);
-        pass = (EditText) findViewById(R.id.User_pass);
-        tel = (EditText) findViewById(R.id.cel);
-        email =(EditText) findViewById(R.id.Useremail);
+        requestQueue = Volley.newRequestQueue(this);
 
-    }
+        initUI();
+        btnregistrar.setOnClickListener(this);
 
-    public void check(View view){
-        //metodo para validar el login
+
 
     }
 
-    public void pasar_reg(View view){
-        Intent Vregistro = new Intent(this, Registrar.class);
-        startActivity(Vregistro);
+    private void initUI() {
+        User_name = (EditText) findViewById(R.id.User_name);
+        User_pass = (EditText) findViewById(R.id.User_pass);
+        User_tel = (EditText) findViewById(R.id.cel);
+        User_email = (EditText) findViewById(R.id.Useremail);
+
+        btnregistrar = findViewById(R.id.btn_registrar);
+
+
+
+
     }
 
 
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+
+        if (id == R.id.btn_registrar) {
+            String name = User_name.getText().toString().trim();
+            String pass = User_pass.getText().toString().trim();
+            String email = User_email.getText().toString().trim();
+            String tel = User_tel.getText().toString().trim();
+
+            registraruser(name,pass,email,tel);
+
+
+
+        } else if (id == R.id.btn_redir_register ) {
+
+        }
+    }
+
+    private void registraruser(final String name, final String pass,final String email,final String tel) {
+
+        StringRequest stringRequest  = new StringRequest(
+
+                Request.Method.POST,
+                URL1,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(MainActivity.this, "correct", Toast.LENGTH_SHORT).show();
+
+
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+
+
+        ){
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String,String> params=new HashMap<>();
+                params.put("name", name);
+                params.put("email", email);
+                params.put("pass", pass);
+                params.put("phone",tel);
+                return super.getParams();
+            }
+        };
+        requestQueue.add(stringRequest);
+
+
+
+    }
 }
