@@ -14,4 +14,16 @@
 
     <string name="Submit_login">ingresar</string>
     <string name="Submit_register">registrarse</string>
+
+    <!-- Reservas -->
+    <string name="TituloReservas">RESERVAR</string>
+    <string name="nombreReserva">Nombre del representante</string>
+    <string name="personasReresva">Núero de asistentes</string>
+    <string name="dateRegister">Día de la reserva</string>
+    <string name="timeRegister">Hora de la reserva</string>
+    <string name="btn_reservar">Reservar</string>
+
+    <!-- Horarios -->
+    <string name="TituloHorario">Horarios</string>
+
 </resources>
