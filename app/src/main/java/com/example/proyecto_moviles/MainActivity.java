@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registrar);
+        setContentView(R.layout.login);
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -121,13 +121,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public void pasar_login2(View view){
-        Intent ingreso = new Intent(this,MainActivity.class);
+    public void pasar_registro(View view){
+        Intent ingreso = new Intent(this,Registrar.class);
         startActivity(ingreso);
     }
 
-    public void mostrar2 (View V) {
-        Intent pasar = new Intent(this,MainActivity.class);
-        startActivity(pasar);
-    }
+
 }

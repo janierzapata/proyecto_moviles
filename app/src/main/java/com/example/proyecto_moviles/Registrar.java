@@ -21,8 +21,5 @@ public class Registrar extends AppCompatActivity {
         startActivity(ingreso);
     }
 
-    public void mostrar (View V) {
-        Toast.makeText(this,"INGRESO",Toast.LENGTH_SHORT).show();
 
-    }
 }

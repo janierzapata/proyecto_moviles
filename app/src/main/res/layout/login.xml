@@ -78,7 +78,7 @@
         android:background="#00E91E63"
         android:backgroundTint="#0003A9F4"
         android:backgroundTintMode="add"
-        android:onClick="pasar_login2"
+        android:onClick="pasar_registro"
         android:text="@string/register"
         android:textColor="#673AB7"
         android:textColorHighlight="#3F51B5"
