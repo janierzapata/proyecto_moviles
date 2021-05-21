@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 public class Registrar extends AppCompatActivity {
 
@@ -14,9 +15,14 @@ public class Registrar extends AppCompatActivity {
         setContentView(R.layout.activity_registrar);
     }
 
-    public void pasar2(View view){
-        Intent pasar2 = new Intent(this,MainActivity.class);
-        startActivity(pasar2);
+    public void pasar_login(View view){
+
+        Intent ingreso = new Intent(this,MainActivity.class);
+        startActivity(ingreso);
     }
 
+    public void mostrar (View V) {
+        Toast.makeText(this,"INGRESO",Toast.LENGTH_SHORT).show();
+
+    }
 }

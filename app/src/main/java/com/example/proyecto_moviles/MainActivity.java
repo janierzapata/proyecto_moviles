@@ -3,6 +3,7 @@ package com.example.proyecto_moviles;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.VoiceInteractor;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private void initUI() {
+        private void initUI() {
         User_name = (EditText) findViewById(R.id.User_name);
         User_pass = (EditText) findViewById(R.id.User_pass);
         User_tel = (EditText) findViewById(R.id.cel);
@@ -118,5 +119,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
+    }
+
+    public void pasar_login2(View view){
+        Intent ingreso = new Intent(this,MainActivity.class);
+        startActivity(ingreso);
+    }
+
+    public void mostrar2 (View V) {
+        Intent pasar = new Intent(this,MainActivity.class);
+        startActivity(pasar);
     }
 }
