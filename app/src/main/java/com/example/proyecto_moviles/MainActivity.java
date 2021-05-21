@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     RequestQueue requestQueue;
 
-    private static final String URL1 = "http://192.168.56.1/proyectapp/save.php";
+    private static final String URL1 = "http://192.168.100.4/proyectapp/save.php";
 
 
 
@@ -89,9 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(MainActivity.this, "correct", Toast.LENGTH_SHORT).show();
-
-
+                        Toast.makeText(MainActivity.this, response, Toast.LENGTH_LONG).show();
 
                     }
                 },
@@ -113,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 params.put("email", email);
                 params.put("pass", pass);
                 params.put("phone",tel);
-                return super.getParams();
+                return params;
             }
         };
         requestQueue.add(stringRequest);
