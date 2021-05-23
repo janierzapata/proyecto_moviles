@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Proyecto_moviles</string>
+    <string name="app_name">Restaurante SQLite</string>
 
     <string name="login">Ingresar</string>
     <string name="login_redirection">¿ya tienes cuenta?</string>

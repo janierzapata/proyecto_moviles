@@ -60,6 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="180dp"
         android:backgroundTint="@color/rojopastel"
+        android:onClick="agregar"
         android:text="@string/Submit_register"
         android:textColor="@color/azulpastel"
         android:textSize="24sp"

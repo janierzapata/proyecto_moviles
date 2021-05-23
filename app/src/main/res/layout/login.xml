@@ -55,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:backgroundTint="@color/rojopastel"
+        android:onClick="Buscar"
         android:text="@string/Submit_login"
         android:textColor="@color/azulpastel"
         android:textSize="24sp"
@@ -78,15 +79,18 @@
         android:id="@+id/btn_redir_register"
         android:layout_width="126dp"
         android:layout_height="40dp"
+        android:layout_marginTop="4dp"
         android:background="#00E91E63"
         android:backgroundTint="#0003A9F4"
-        android:backgroundTintMode="add"
-        android:onClick="pasar_registro"
+
+
+        android:onClick="pasar"
         android:text="@string/register"
         android:textColor="@color/rojopastel"
         android:textColorHighlight="#3F51B5"
         android:textColorLink="#673AB7"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 

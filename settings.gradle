@@ -1,2 +1,2 @@
-rootProject.name = "Proyecto_moviles"
+rootProject.name = "RestauranteSQLite"
 include ':app'
