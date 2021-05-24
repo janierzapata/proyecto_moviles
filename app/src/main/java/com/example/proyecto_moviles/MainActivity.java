@@ -42,6 +42,10 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     public void Buscar (View v){
+
+        Intent intent = new Intent(this, Reservas.class);
+        startActivity(intent);
+        this.finish();
         /*AdminSqlite objsql = new AdminSqlite(this,"administrator", null, 1);
         SQLiteDatabase db = objsql.getWritableDatabase();
 
