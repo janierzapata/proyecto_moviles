@@ -1,8 +1,10 @@
 package com.example.proyecto_moviles;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import com.example.restaurantesqlite.R;
 
 public class Horarios extends AppCompatActivity {
 

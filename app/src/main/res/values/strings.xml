@@ -16,7 +16,7 @@
     <string name="Submit_register">registrarse</string>
 
     <!-- Reservas -->
-    <string name="TituloReservas">RESERVAR</string>
+    <string name="TituloReservas">Reservar</string>
     <string name="nombreReserva">Nombre del representante</string>
     <string name="personasReresva">Núero de asistentes</string>
     <string name="dateRegister">Día de la reserva</string>
@@ -25,5 +25,8 @@
 
     <!-- Horarios -->
     <string name="TituloHorario">Horarios</string>
+
+
+
 
 </resources>

@@ -1,10 +1,10 @@
 package com.example.proyecto_moviles;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
+import com.example.restaurantesqlite.R;
 
 public class Reservas extends AppCompatActivity {
 
@@ -13,9 +13,4 @@ public class Reservas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservas);
     }
-
-
-
-
-
 }

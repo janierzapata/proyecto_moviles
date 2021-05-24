@@ -1,4 +1,4 @@
-package com.example.restaurantesqlite;
+package com.example.proyecto_moviles;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
