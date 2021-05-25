@@ -34,7 +34,7 @@ public class Registrar extends AppCompatActivity {
 
 
     public void agregar (View v) {
-        AdminSqlite objsql = new AdminSqlite(this,"administrator",null,1);
+        AdminSqlite objsql = new AdminSqlite(this);
         SQLiteDatabase db = objsql.getWritableDatabase();
 
         String nombreUsuario = name.getText().toString();
@@ -68,20 +68,20 @@ public class Registrar extends AppCompatActivity {
     }
 
     public void Buscar (View s){
-        AdminSqlite objsql = new AdminSqlite(this,"administrator", null, 1);
-        SQLiteDatabase db = objsql.getWritableDatabase();
-
-            Cursor fila = db.rawQuery("select id from articulos where nombre="+s, null);
-            if(fila.moveToFirst()){
-
-                String a = fila.getString(1);
-                Toast.makeText(this, "EL ID ES+"+ a , Toast.LENGTH_SHORT).show();
-
-                db.close();
-            }else{
-                Toast.makeText(this, "Este producto no existe", Toast.LENGTH_SHORT).show();
-                db.close();
-            }
+        AdminSqlite objsql = new AdminSqlite(this);
+//        SQLiteDatabase db = objsql.getWritableDatabase();
+//
+//            Cursor fila = db.rawQuery("select id from usuarios where nombre="+s, null);
+//            if(fila.moveToFirst()){
+//
+//                String a = fila.getString(1);
+//                Toast.makeText(this, "EL ID ES+"+ a , Toast.LENGTH_SHORT).show();
+//
+//                db.close();
+//            }else{
+//                Toast.makeText(this, "Este producto no existe", Toast.LENGTH_SHORT).show();
+//                db.close();
+//            }
 
     }
 
