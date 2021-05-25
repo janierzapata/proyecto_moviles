@@ -1,4 +1,4 @@
-package com.example.proyecto_moviles;
+package com.example.restaurantesqlite;
 
 
 import android.content.Intent;
@@ -10,13 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-
-import com.example.restaurantesqlite.R;
-
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -43,9 +36,10 @@ public class MainActivity extends AppCompatActivity  {
 
     public void Buscar (View v){
 
-        Intent intent = new Intent(this, Reservas.class);
+        Intent intent = new Intent(this, Index.class);
         startActivity(intent);
         this.finish();
+
         /*AdminSqlite objsql = new AdminSqlite(this,"administrator", null, 1);
         SQLiteDatabase db = objsql.getWritableDatabase();
 
@@ -58,9 +52,9 @@ public class MainActivity extends AppCompatActivity  {
             if(fila.moveToFirst()){
 
                 String id = fila.getString(0);
-                Intent intent = new Intent(this, Reservas.class);
+                Intent i = new Intent(this, Reservas.class);
                 intent.putExtra("id",id);
-                startActivity(intent);
+                startActivity(i);
 
                 db.close();
             }else{

@@ -1,7 +1,8 @@
-package com.example.proyecto_moviles;
+package com.example.restaurantesqlite;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.restaurantesqlite.R;
 
 public class Registrar extends AppCompatActivity {
 
@@ -64,12 +63,33 @@ public class Registrar extends AppCompatActivity {
         }else {
             Toast.makeText(this, "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
         }
+
+        
+    }
+
+    public void Buscar (View s){
+        AdminSqlite objsql = new AdminSqlite(this,"administrator", null, 1);
+        SQLiteDatabase db = objsql.getWritableDatabase();
+
+            Cursor fila = db.rawQuery("select id from articulos where nombre="+s, null);
+            if(fila.moveToFirst()){
+
+                String a = fila.getString(1);
+                Toast.makeText(this, "EL ID ES+"+ a , Toast.LENGTH_SHORT).show();
+
+                db.close();
+            }else{
+                Toast.makeText(this, "Este producto no existe", Toast.LENGTH_SHORT).show();
+                db.close();
+            }
+
     }
 
     public void pasar_login(View view){
 
         Intent ingreso = new Intent(this,MainActivity.class);
         startActivity(ingreso);
+        this.finish();
     }
 
 
