@@ -35,25 +35,22 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     public void Buscar (View v){
-
-        Intent intent = new Intent(this, Index.class);
-        startActivity(intent);
-        this.finish();
-
-        /*AdminSqlite objsql = new AdminSqlite(this,"administrator", null, 1);
+//        Intent intent = new Intent(this, Index.class);
+//        startActivity(intent);
+//        this.finish();
+//
+        AdminSqlite objsql = new AdminSqlite(this);
         SQLiteDatabase db = objsql.getWritableDatabase();
-
+//
         String nombre = name.getText().toString();
         String contraseña = pass.getText().toString();
-
-
         if(!nombre.isEmpty() && !contraseña.isEmpty()){
-            Cursor fila = db.rawQuery("select id from usuarios where nombre="+nombre +"&& contraseña="+contraseña, null);
+            Cursor fila = db.rawQuery("select id from usuarios where nombre='"+ nombre +"' and contraseña='" + contraseña +"'", null);
             if(fila.moveToFirst()){
 
                 String id = fila.getString(0);
                 Intent i = new Intent(this, Reservas.class);
-                intent.putExtra("id",id);
+//                Intent.putExtra("id",id);
                 startActivity(i);
 
                 db.close();
@@ -64,7 +61,7 @@ public class MainActivity extends AppCompatActivity  {
         }else{
             Toast.makeText(this, "Debes poner un codigo", Toast.LENGTH_SHORT).show();
 
-        }*/
+        }
     }
 
 }
