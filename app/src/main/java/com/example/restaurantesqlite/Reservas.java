@@ -68,7 +68,7 @@ public class Reservas extends AppCompatActivity {
     }
     public void refrescarHoraEnEditText() {
         // Formateamos la fecha pero podríamos hacer cualquier otra cosa ;)
-        String fecha = String.format(Locale.getDefault(), "%02d-%02d",hora,minutos);
+        String fecha = String.format(Locale.getDefault(), "%02d:%02d",hora,minutos);
 
         // La ponemos en el editText
         etHora.setText(fecha);
@@ -181,7 +181,8 @@ public class Reservas extends AppCompatActivity {
             startActivity(intent);
             this.finish();*/
         }else if(itemId==R.id.item_salir){
-
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
             this.finish();
         }
         return super.onOptionsItemSelected(i);
