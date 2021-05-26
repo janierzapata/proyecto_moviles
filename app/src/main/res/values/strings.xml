@@ -27,4 +27,13 @@
     <string name="TituloHorario">Horarios</string>
 
 
+    <string name="item_inicio">Inicio</string>
+    <string name="item_reservar">Reservar</string>
+    <string name="item_mis_reservas">Mis Reservas</string>
+    <string name="item_cancelar">Cancelar Reservas</string>
+    <string name="item_menu">Menú</string>
+    <string name="item_editar">Cambiar Reserva</string>
+    <string name="item_salir">Salir</string>
+
+
 </resources>

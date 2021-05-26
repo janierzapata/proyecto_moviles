@@ -4,44 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/azulpastel"
+    android:background="@color/white"
     tools:context=".Index">
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="405dp"
-        android:layout_height="342dp"
+        android:layout_width="408dp"
+        android:layout_height="302dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041">
+        app:layout_constraintVertical_bias="0.037">
 
         <ImageButton
             android:id="@+id/btn_back"
             android:layout_width="115dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:backgroundTint="#00FFFFFF"
             android:contentDescription="@string/User"
             android:onClick="back"
             app:srcCompat="@drawable/iconfinder_multimedia_04_2849832__1_" />
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="256dp"
             android:layout_weight="1">
 
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/img1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="302dp"
                 app:srcCompat="@drawable/download" />
 
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/img2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="303dp"
                 android:visibility="invisible"
                 app:srcCompat="@drawable/images" />
         </FrameLayout>
@@ -51,6 +53,7 @@
             android:layout_width="115dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:backgroundTint="#00FFFFFF"
             android:contentDescription="@string/Submit_login"
             android:onClick="next"
             app:srcCompat="@drawable/iconfinder_right_1303890__1_" />
@@ -61,9 +64,10 @@
         android:id="@+id/textView3"
         android:layout_width="409dp"
         android:layout_height="67dp"
-        android:background="@color/amarillopastel"
+        android:background="@color/purple_500"
         android:text="@string/TituloHorario"
         android:textAlignment="center"
+        android:textColor="#FBFBFB"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,9 +89,10 @@
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/rojopastel"
+            android:background="@color/purple_500"
             android:text="Sede Sur"
             android:textAlignment="center"
+            android:textColor="#FFFFFF"
             android:textSize="24sp" />
 
         <TextView
@@ -106,7 +111,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="center"
                 android:textSize="24sp" />
 
@@ -124,9 +128,10 @@
             android:id="@+id/textView12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/rojopastel"
+            android:background="@color/purple_500"
             android:text="Sede Norte"
             android:textAlignment="center"
+            android:textColor="#FFFFFF"
             android:textSize="24sp" />
 
         <TextView

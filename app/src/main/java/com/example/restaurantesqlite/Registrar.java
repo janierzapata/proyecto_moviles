@@ -67,23 +67,7 @@ public class Registrar extends AppCompatActivity {
         
     }
 
-    public void Buscar (View s){
-        AdminSqlite objsql = new AdminSqlite(this);
-//        SQLiteDatabase db = objsql.getWritableDatabase();
-//
-//            Cursor fila = db.rawQuery("select id from usuarios where nombre="+s, null);
-//            if(fila.moveToFirst()){
-//
-//                String a = fila.getString(1);
-//                Toast.makeText(this, "EL ID ES+"+ a , Toast.LENGTH_SHORT).show();
-//
-//                db.close();
-//            }else{
-//                Toast.makeText(this, "Este producto no existe", Toast.LENGTH_SHORT).show();
-//                db.close();
-//            }
 
-    }
 
     public void pasar_login(View view){
 

@@ -49,17 +49,17 @@ public class MainActivity extends AppCompatActivity  {
             if(fila.moveToFirst()){
 
                 String id = fila.getString(0);
-                Intent i = new Intent(this, Reservas.class);
+                Intent i = new Intent(this, Index.class);
 //                Intent.putExtra("id",id);
                 startActivity(i);
-
                 db.close();
+                this.finish();
             }else{
-                Toast.makeText(this, "Este producto no existe", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Este usuario no existe", Toast.LENGTH_SHORT).show();
                 db.close();
             }
         }else{
-            Toast.makeText(this, "Debes poner un codigo", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Debes llenartodos los campos", Toast.LENGTH_SHORT).show();
 
         }
     }

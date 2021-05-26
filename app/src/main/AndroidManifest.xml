@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RestauranteSQLite">
         <activity android:name=".Index"></activity>
-        <activity android:name=".Horarios" />
         <activity android:name=".Reservas" />
         <activity android:name=".Registrar" />
         <activity android:name=".MainActivity">
