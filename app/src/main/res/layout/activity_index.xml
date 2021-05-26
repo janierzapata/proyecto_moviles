@@ -108,20 +108,22 @@
 
             <TextView
                 android:id="@+id/textView10"
-                android:layout_width="wrap_content"
+                android:layout_width="155dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:text="9:00 am - 2:00 pm "
                 android:textAlignment="center"
-                android:textSize="24sp" />
+                android:textAllCaps="false"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="5:00 pm - 9:00 pm "
                 android:textAlignment="center"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <TextView
@@ -150,18 +152,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="7:00 am - 2:00 pm "
                 android:textAlignment="center"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="4:00 am - 11:00 pm "
                 android:textAlignment="center"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
     </LinearLayout>

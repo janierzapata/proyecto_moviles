@@ -26,6 +26,7 @@
     <!-- Horarios -->
     <string name="TituloHorario">Horarios</string>
 
+    <!-- Menu superior-->
 
     <string name="item_inicio">Inicio</string>
     <string name="item_reservar">Reservar</string>
@@ -35,5 +36,10 @@
     <string name="item_editar">Cambiar Reserva</string>
     <string name="item_salir">Salir</string>
 
+    <!-- Menu Vista -->
+    <string name="title_menu">Menú</string>
+    <string name="entradas">Comidas</string>
+    <string name="postres">postres</string>
+    <string name="bebidas">bebidas</string>
 
 </resources>

@@ -12,5 +12,8 @@
     <color name="verdepastel">#A5F8CF</color>
     <color name="azulpastel">#C5EBFE</color>
     <color name="amarillopastel">#FFF87F</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
 
 </resources>
