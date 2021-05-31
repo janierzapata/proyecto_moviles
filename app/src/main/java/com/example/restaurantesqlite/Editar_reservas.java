@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class Reservas extends AppCompatActivity {
+public class Editar_reservas extends AppCompatActivity {
 
 
     // Obtener referencia al EditText
@@ -75,7 +75,7 @@ public class Reservas extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reservas);
+        setContentView(R.layout.activity_editar_reservas);
 
         // Instanciar objetos
         etFecha = findViewById(R.id.datePicker);
@@ -104,10 +104,10 @@ public class Reservas extends AppCompatActivity {
 
                 // Le pasamos lo que haya en las globales
 
-                    DatePickerDialog dialogoFecha = new DatePickerDialog(Reservas.this, listenerDeDatePicker, ultimoAnio, ultimoMes, ultimoDiaDelMes);
-                    //Mostrar
-                    dialogoFecha.show();
-                }
+                DatePickerDialog dialogoFecha = new DatePickerDialog(Editar_reservas.this, listenerDeDatePicker, ultimoAnio, ultimoMes, ultimoDiaDelMes);
+                //Mostrar
+                dialogoFecha.show();
+            }
         });
 
         etHora.setOnClickListener(new View.OnClickListener() {
@@ -118,7 +118,7 @@ public class Reservas extends AppCompatActivity {
 
                 // Le pasamos lo que haya en las globales
 
-                TimePickerDialog dialogoFecha = new TimePickerDialog(Reservas.this,new TimePickerDialog.OnTimeSetListener(){
+                TimePickerDialog dialogoFecha = new TimePickerDialog(Editar_reservas.this,new TimePickerDialog.OnTimeSetListener(){
                     @Override
                     public void onTimeSet(TimePicker view,int hours,int minutes){
                         etHora.setText(hours+":"+minutes);
@@ -145,13 +145,14 @@ public class Reservas extends AppCompatActivity {
             this.finish();
         }
         else if(itemId==R.id.item_reservar){
-            Intent intent = new Intent(this, Reservas.class);
+            Intent intent = new Intent(this, Editar_reservas.class);
             startActivity(intent);
             this.finish();
         }
         else if(itemId==R.id.item_editar){
 
-            Intent intent = new Intent(this, Editar_reservas.class);
+            Toast.makeText(this,"paso a editar",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this,Editar_reservas.class);
             startActivity(intent);
             this.finish();
         }

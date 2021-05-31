@@ -103,6 +103,6 @@
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"
-        app:srcCompat="@drawable/login" />
+        app:srcCompat="@drawable/businessapplication_accept_ok_male_man_you_negocio_2311" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

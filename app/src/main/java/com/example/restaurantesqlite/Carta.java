@@ -6,48 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.*;
+import android.widget.Toast;
 
-public class Index extends AppCompatActivity {
-
-    private ImageView imag1, imag2;
-
-    boolean state =true;
+public class Carta extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_index);
-
-        imag1 = (ImageView)findViewById(R.id.img1);
-        imag2 = (ImageView)findViewById(R.id.img2);
+        setContentView(R.layout.activity_menu);
     }
-
-    public void next(View v) {
-        if (state){
-            imag1.setVisibility(View.INVISIBLE);
-            imag2.setVisibility(View.VISIBLE);
-            state = false;
-        }else{
-            imag1.setVisibility(View.VISIBLE);
-            imag2.setVisibility(View.INVISIBLE);
-            state = true;
-        }
-    }
-
-    public void back(View v) {
-        if (state){
-            imag1.setVisibility(View.INVISIBLE);
-            imag2.setVisibility(View.VISIBLE);
-            state = false;
-        }else{
-            imag1.setVisibility(View.VISIBLE);
-            imag2.setVisibility(View.INVISIBLE);
-            state = true;
-        }
-    }
-
     public boolean onCreateOptionsMenu(Menu m){
         getMenuInflater().inflate(R.menu.menu, m);
         return true;
@@ -68,13 +35,15 @@ public class Index extends AppCompatActivity {
         }
         else if(itemId==R.id.item_editar){
 
-
-            Intent intent = new Intent(this, Editar_reservas.class);
+            Toast.makeText(this,"paso a editar",Toast.LENGTH_SHORT).show();
+            Intent intent= new Intent(this, Editar_reservas.class);
             startActivity(intent);
             this.finish();
         }
         else if(itemId==R.id.item_mis_reservas){
-           /* Intent intent = new Intent(this, MisReservas.class);
+            Toast.makeText(this,"paso a mis reservas",Toast.LENGTH_SHORT).show();
+
+           /* Intent intent = new Intent(this, Index.class);
             startActivity(intent);
             this.finish();*/
         }
@@ -82,7 +51,7 @@ public class Index extends AppCompatActivity {
             Toast.makeText(this,"paso a cancelar reservas",Toast.LENGTH_SHORT).show();
 
             /*
-            Intent intent = new Intent(this, Cancelar.class);
+            Intent intent = new Intent(this, Index.class);
             startActivity(intent);
             this.finish();*/
         }

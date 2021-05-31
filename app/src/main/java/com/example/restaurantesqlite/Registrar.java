@@ -23,7 +23,7 @@ public class Registrar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
 
-        name = (EditText)findViewById(R.id.User_name);
+        name = (EditText)findViewById(R.id.User);
         pass = (EditText)findViewById(R.id.User_pass);
         tel = (EditText)findViewById(R.id.cel);
         email = (EditText)findViewById(R.id.Useremail);
