@@ -96,7 +96,7 @@
                     android:layout_weight="2" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btn_reservar"
                     android:layout_width="149dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
