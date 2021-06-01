@@ -188,7 +188,7 @@ public class Reservas extends AppCompatActivity {
     }
 
 
-   /* public EditText getEtNombre() {
+    public EditText getEtNombre() {
     return etNombre;
     }
 
@@ -237,7 +237,7 @@ public class Reservas extends AppCompatActivity {
         }
 
 
-    }*/
+    }
 
     }
 

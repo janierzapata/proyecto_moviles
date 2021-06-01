@@ -41,7 +41,7 @@ public class  MainActivity extends AppCompatActivity  {
         String nombre = name.getText().toString();
         String contraseña = pass.getText().toString();
         if(!nombre.isEmpty() && !contraseña.isEmpty()){
-            Cursor fila = db.rawQuery("select id from usuarios where nombre="+ nombre +" and contraseña=" + contraseña , null);
+            Cursor fila = db.rawQuery("select id from usuarios where nombre='"+ nombre +"' and contraseña='" + contraseña+"'" , null);
             if(fila.moveToFirst()){
 
                 String id = fila.getString(0);
