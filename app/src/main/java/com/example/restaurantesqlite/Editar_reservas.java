@@ -3,6 +3,8 @@ package com.example.restaurantesqlite;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -131,6 +133,34 @@ public class Editar_reservas extends AppCompatActivity {
 
     }
 
+
+    /*public void Buscar (View v){
+
+        AdminSqlite objsql = new AdminSqlite(this);
+        SQLiteDatabase db = objsql.getWritableDatabase();
+
+        String nombre = name.getText().toString();
+        String contraseña = pass.getText().toString();
+        if(!nombre.isEmpty() && !contraseña.isEmpty()){
+            Cursor fila = db.rawQuery("select id from usuarios where nombre='"+ nombre +"' and contraseña='" + contraseña +"'", null);
+            if(fila.moveToFirst()){
+
+                String id = fila.getString(0);
+                Intent i = new Intent(this, Index.class);
+//                Intent.putExtra("id",id);
+                startActivity(i);
+                db.close();
+                this.finish();
+            }else{
+                Toast.makeText(this, "Este usuario no existe", Toast.LENGTH_SHORT).show();
+                db.close();
+            }
+        }else{
+            Toast.makeText(this, "Debes llenartodos los campos", Toast.LENGTH_SHORT).show();
+
+        }
+    }*/
+
     public boolean onCreateOptionsMenu(Menu m){
         getMenuInflater().inflate(R.menu.menu, m);
         return true;
@@ -150,8 +180,6 @@ public class Editar_reservas extends AppCompatActivity {
             this.finish();
         }
         else if(itemId==R.id.item_editar){
-
-            Toast.makeText(this,"paso a editar",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this,Editar_reservas.class);
             startActivity(intent);
             this.finish();
