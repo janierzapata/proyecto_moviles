@@ -101,6 +101,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:backgroundTint="@color/purple_500"
+                    android:onClick="Buscar"
                     android:text="@string/buscarReservas"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
@@ -116,6 +117,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:backgroundTint="@color/purple_500"
+                    android:onClick="cancelar"
                     android:text="@string/cancelarReservas"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
@@ -135,6 +137,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:backgroundTint="@color/purple_500"
+                android:onClick="modificar"
                 android:text="@string/editarReservas"
                 android:textColor="@color/white"
                 android:textSize="24sp" />
