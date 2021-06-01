@@ -152,7 +152,12 @@ public class Reservas extends AppCompatActivity {
             Intent intent = new Intent(this, Reservas.class);
             startActivity(intent);
             this.finish();
+
         } else if (itemId == R.id.item_editar) {
+
+
+        }
+        else if(itemId==R.id.item_editar){
 
             Intent intent = new Intent(this, Editar_reservas.class);
             startActivity(intent);
