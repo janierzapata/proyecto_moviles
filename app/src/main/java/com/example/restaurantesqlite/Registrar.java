@@ -49,6 +49,8 @@ public class Registrar extends AppCompatActivity {
             registro.put("celular",celular);
             registro.put("email",correo);
 
+
+
             db.insert("usuarios",null,registro);
 
             db.close();
@@ -60,6 +62,9 @@ public class Registrar extends AppCompatActivity {
 
             Toast.makeText(this,"Registro realizado correctamente",Toast.LENGTH_SHORT).show();
 
+            Intent ingreso = new Intent(this,MainActivity.class);
+            startActivity(ingreso);
+            this.finish();
         }else {
             Toast.makeText(this, "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
         }
@@ -70,7 +75,6 @@ public class Registrar extends AppCompatActivity {
 
 
     public void pasar_login(View view){
-
         Intent ingreso = new Intent(this,MainActivity.class);
         startActivity(ingreso);
         this.finish();

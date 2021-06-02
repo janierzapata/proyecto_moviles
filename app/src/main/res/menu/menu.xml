@@ -12,12 +12,6 @@
         android:id="@+id/item_mis_reservas"
         android:title="@string/item_mis_reservas" />
     <item
-        android:id="@+id/item_cancelar"
-        android:title="@string/item_cancelar" />
-    <item
-        android:id="@+id/item_editar"
-        android:title="@string/item_editar" />
-    <item
         android:id="@+id/item_menu"
         android:title="@string/item_menu" />
     <item

@@ -12,6 +12,7 @@ import android.widget.*;
 public class Index extends AppCompatActivity {
 
     private ImageView imag1, imag2;
+    String id="";
 
     boolean state =true;
 
@@ -19,6 +20,9 @@ public class Index extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index);
+
+        id =getIntent().getStringExtra("idUser");
+
 
         imag1 = (ImageView)findViewById(R.id.img1);
         imag2 = (ImageView)findViewById(R.id.img2);
@@ -58,34 +62,27 @@ public class Index extends AppCompatActivity {
 
         if(itemId==R.id.item_index){
             Intent intent = new Intent(this, Index.class);
+            intent.putExtra("idUser",id);
             startActivity(intent);
             this.finish();
         }
         else if(itemId==R.id.item_reservar){
             Intent intent = new Intent(this, Reservas.class);
+            intent.putExtra("idUser",id);
             startActivity(intent);
             this.finish();
         }
-        else if(itemId==R.id.item_editar){
-            Intent intent = new Intent(this, Editar_reservas.class);
-            startActivity(intent);
-            this.finish();
-        }
-        else if(itemId==R.id.item_mis_reservas){
-           /* Intent intent = new Intent(this, MisReservas.class);
-            startActivity(intent);
-            this.finish();*/
-        }
-        else if(itemId==R.id.item_cancelar){
-            Toast.makeText(this,"paso a cancelar reservas",Toast.LENGTH_SHORT).show();
 
-            /*
-            Intent intent = new Intent(this, Cancelar.class);
+        else if(itemId==R.id.item_mis_reservas){
+           Intent intent = new Intent(this, Editar_reservas.class);
+            intent.putExtra("idUser",id);
             startActivity(intent);
-            this.finish();*/
+            this.finish();
         }
+
         else if(itemId==R.id.item_menu){
             Intent intent = new Intent(this, Carta.class);
+            intent.putExtra("idUser",id);
             startActivity(intent);
             this.finish();
         }

@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,6 +28,7 @@ public class Reservas extends AppCompatActivity {
 
     // Guardar el último año, mes y día del mes
     private int ultimoAnio, ultimoMes, ultimoDiaDelMes, hora, minutos;
+    private String id="";
 
 
     // Crear un listener del datepicker;
@@ -80,11 +82,25 @@ public class Reservas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservas);
 
+
+        id = getIntent().getStringExtra("idUser");
+
+
+        AdminSqlite objsql = new AdminSqlite(this);
+        SQLiteDatabase db = objsql.getWritableDatabase();
+
+        Cursor fila = db.rawQuery("select nombre from usuarios where id='"+id+"'", null);
+
+
         // Instanciar objetos
         etFecha = findViewById(R.id.datePicker);
         etHora = findViewById(R.id.timePicker);
         etNombre = findViewById(R.id.nameRep);
         etAsistentes = findViewById(R.id.numPersn);
+
+        if(fila.moveToFirst()){
+            etNombre.setText(fila.getString(0));
+        }
 
         // Poner último año, mes y día a la fecha de hoy
         final Calendar calendario = Calendar.getInstance();
@@ -146,37 +162,25 @@ public class Reservas extends AppCompatActivity {
 
         if (itemId == R.id.item_index) {
             Intent intent = new Intent(this, Index.class);
+            intent.putExtra("idUser",id);
             startActivity(intent);
             this.finish();
         } else if (itemId == R.id.item_reservar) {
             Intent intent = new Intent(this, Reservas.class);
+            intent.putExtra("idUser",id);
             startActivity(intent);
             this.finish();
-
-        } else if (itemId == R.id.item_editar) {
-
 
         }
-        else if(itemId==R.id.item_editar){
-
+         else if (itemId == R.id.item_mis_reservas) {
             Intent intent = new Intent(this, Editar_reservas.class);
+            intent.putExtra("idUser",id);
             startActivity(intent);
             this.finish();
-        } else if (itemId == R.id.item_mis_reservas) {
-            Toast.makeText(this, "paso a mis reservas", Toast.LENGTH_SHORT).show();
-
-           /* Intent intent = new Intent(this, Index.class);
-            startActivity(intent);
-            this.finish();*/
-        } else if (itemId == R.id.item_cancelar) {
-            Toast.makeText(this, "paso a cancelar reservas", Toast.LENGTH_SHORT).show();
-
-            /*
-            Intent intent = new Intent(this, Index.class);
-            startActivity(intent);
-            this.finish();*/
-        } else if (itemId == R.id.item_menu) {
+        }
+        else if (itemId == R.id.item_menu) {
             Intent intent = new Intent(this, Carta.class);
+            intent.putExtra("idUser",id);
             startActivity(intent);
             this.finish();
         } else if (itemId == R.id.item_salir) {
@@ -188,43 +192,37 @@ public class Reservas extends AppCompatActivity {
     }
 
 
-    public EditText getEtNombre() {
-    return etNombre;
-    }
 
-    public void setEtNombre(EditText etNombre) {
-        this.etNombre = etNombre;
-    }
-
-    public EditText getEtAsistentes() {
-        return etAsistentes;
-    }
-
-    public void setEtAsistentes(EditText etAsistentes) {
-        this.etAsistentes = etAsistentes;
-    }
 
     public void reservar (View v){
         AdminSqlite objsql = new AdminSqlite(this);
         SQLiteDatabase db = objsql.getWritableDatabase();
 
 
-        String nombre_representante = etNombre.getText().toString();
+
         String asistentes = etAsistentes.getText().toString();
         String dia = etFecha.getText().toString();
         String hora = etHora.getText().toString();
 
-        if(!nombre_representante.isEmpty() && !asistentes.isEmpty() && !dia.isEmpty() && !hora.isEmpty()){
+        if(!asistentes.isEmpty() && !dia.isEmpty() && !hora.isEmpty()){
             ContentValues registro = new ContentValues();
-            registro.put("nombre",nombre_representante);
-            registro.put("asistentes",asistentes);
-            registro.put("Dia",dia);
-            registro.put("Hora",hora);
 
-            db.insert("reservas",null,registro);
+            registro.put("asistentes",asistentes);
+            registro.put("dia",dia);
+            registro.put("hora",hora);
+
+            int cantidad = db.update("usuarios", registro, "nombre=" + etNombre.getText()+"and id="+id  , null);
+            if(cantidad == 1){
+                Toast.makeText(this, "Reserva realizada con exito", Toast.LENGTH_SHORT).show();
+
+
+            }else{
+                Toast.makeText(this, "la Reserva no se pudo realizar", Toast.LENGTH_SHORT).show();
+            }
+            db.close();
 
             db.close();
-            etNombre.setText("");
+
             etAsistentes.setText("");
             etFecha.setText("");
             etHora.setText("");

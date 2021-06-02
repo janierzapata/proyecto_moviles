@@ -114,7 +114,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="btn" />
+                    android:onClick="agregar"
+                    android:text="@string/Submit_register" />
 
                 <Space
                     android:layout_width="wrap_content"
