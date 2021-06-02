@@ -45,7 +45,6 @@ public class  MainActivity extends AppCompatActivity  {
             if(fila.moveToFirst()){
 
                 String id = fila.getString(0);
-                Toast.makeText(this,"El id es: "+id, Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(this, Index.class);
                 i.putExtra("idUser",id);
                 startActivity(i);

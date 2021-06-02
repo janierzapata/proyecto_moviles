@@ -28,7 +28,7 @@
         android:layout_height="49dp"
         android:layout_marginTop="192dp"
         android:ems="10"
-        android:enabled="false"
+        android:enabled="true"
         android:hint="@string/nombreReserva"
         android:inputType="textPersonName"
         android:textAlignment="center"

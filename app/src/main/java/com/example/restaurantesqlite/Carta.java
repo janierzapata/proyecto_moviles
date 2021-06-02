@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class Carta extends AppCompatActivity {
 
-    private String id="";
+    String id="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

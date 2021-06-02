@@ -93,6 +93,7 @@ public class Reservas extends AppCompatActivity {
 
 
         // Instanciar objetos
+        etNombre=findViewById(R.id.nameRep);
         etFecha = findViewById(R.id.datePicker);
         etHora = findViewById(R.id.timePicker);
         etNombre = findViewById(R.id.nameRep);
@@ -199,40 +200,37 @@ public class Reservas extends AppCompatActivity {
         SQLiteDatabase db = objsql.getWritableDatabase();
 
 
-
+        String name =etNombre.getText().toString();
         String asistentes = etAsistentes.getText().toString();
         String dia = etFecha.getText().toString();
         String hora = etHora.getText().toString();
 
-        if(!asistentes.isEmpty() && !dia.isEmpty() && !hora.isEmpty()){
+
             ContentValues registro = new ContentValues();
 
-            registro.put("asistentes",asistentes);
-            registro.put("dia",dia);
-            registro.put("hora",hora);
+            if (!asistentes.isEmpty() && !dia.isEmpty() && !hora.isEmpty()){
 
-            int cantidad = db.update("usuarios", registro, "nombre=" + etNombre.getText()+"and id="+id  , null);
-            if(cantidad == 1){
-                Toast.makeText(this, "Reserva realizada con exito", Toast.LENGTH_SHORT).show();
+                ContentValues reg = new ContentValues();
 
+                registro.put("personas",asistentes);
+                registro.put("dia",dia);
+                registro.put("Hora",hora);
 
-            }else{
-                Toast.makeText(this, "la Reserva no se pudo realizar", Toast.LENGTH_SHORT).show();
+                int cantidad = db.update("usuarios", registro, "nombre='" + name +"'and id='"+id+"'"  , null);
+                db.close();
+
+                if(cantidad != 0){
+                    Toast.makeText(this, "Reserva realizada exitosamente", Toast.LENGTH_SHORT).show();
+                    etAsistentes.setText("");
+                    etFecha.setText("");
+                    etHora.setText("");
+                }else{
+                    Toast.makeText(this, "la Reserva no se pudo actualizar", Toast.LENGTH_SHORT).show();
+                }
+            }else {
+                Toast.makeText(this, "debe llenar todos los campos", Toast.LENGTH_SHORT).show();
             }
-            db.close();
 
-            db.close();
-
-            etAsistentes.setText("");
-            etFecha.setText("");
-            etHora.setText("");
-
-
-            Toast.makeText(this,"Registro realizado correctamente",Toast.LENGTH_SHORT).show();
-
-        }else {
-            Toast.makeText(this, "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
-        }
 
 
     }

@@ -29,7 +29,7 @@ public class Editar_reservas extends AppCompatActivity {
     // Guardar el último año, mes y día del mes
     private int ultimoAnio, ultimoMes, ultimoDiaDelMes,hora,minutos;
 
-    private String id ;
+    String id ;
 
 
     // Crear un listener del datepicker;
@@ -158,9 +158,10 @@ public class Editar_reservas extends AppCompatActivity {
     public void Buscar (View v){
         AdminSqlite objsql = new AdminSqlite(this);
         SQLiteDatabase db = objsql.getWritableDatabase();
-        String nombre = etnombre.getText().toString();
 
-            Cursor fila = db.rawQuery("select asistentes, dia, hora from usuarios where id=" + id +" and nombre="+nombre , null);
+        String name = etnombre.getText().toString();
+
+            Cursor fila = db.rawQuery("select  personas, dia, hora from usuarios where id='" + id +"' and nombre='"+name+"'" , null);
             if(fila.moveToFirst()){
                 etAsistentes.setText(fila.getString(0));
                 etFecha.setText(fila.getString(1));
@@ -168,41 +169,44 @@ public class Editar_reservas extends AppCompatActivity {
                 db.close();
             }
 
+        String asistentes= etAsistentes.getText().toString();
+        String fecha = etFecha.getText().toString();
+        String  hora= etHora.getText().toString();
+            if(asistentes.equals("") && fecha.equals("") && hora.equals("")){
+                Toast.makeText(this, "No tienes ninguna reserva", Toast.LENGTH_SHORT).show();
+            }
+
     }
     //cancelar reservas
       public void cancelar (View v){
 
-          String asistentes= etAsistentes.getText().toString();
-          String fecha = etFecha.getText().toString();
-          String  hora= etHora.getText().toString();
-        if(!asistentes.isEmpty() && !fecha.isEmpty() && !hora.isEmpty()){
-            AdminSqlite objsql = new AdminSqlite(this);
-            SQLiteDatabase db = objsql.getWritableDatabase();
+          AdminSqlite objsql = new AdminSqlite(this);
+          SQLiteDatabase db = objsql.getWritableDatabase();
 
-            String nombre = etnombre.getText().toString();
+          String name =etnombre.getText().toString();
+          String asistentes= "";
+          String fecha = "";
+          String  hora= "";
 
-            if(!nombre.isEmpty() ){
-                int cantidad = db.delete("reservas","nombre="+nombre,null);
+          if (!asistentes.isEmpty() && !fecha.isEmpty() && !hora.isEmpty()){
 
-                etnombre.setText("");
-                etAsistentes.setText("");
-                etFecha.setText("");
-                etHora.setText("");
+              ContentValues registro = new ContentValues();
 
-                if (cantidad == 1){
-                    Toast.makeText(this, "Reserva cancelada exitosamente", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(this, "la Reserva no existe", Toast.LENGTH_SHORT).show();
+              registro.put("personas",asistentes);
+              registro.put("dia",fecha);
+              registro.put("Hora",hora);
 
-                }
+              int cantidad = db.update("usuarios", registro, "nombre='" + name +"'and id='"+id+"'"  , null);
+              db.close();
 
-            } else {
-                Toast.makeText(this, "debes llenar todos los campos", Toast.LENGTH_SHORT).show();
-
-            }
-        }else{
-            Toast.makeText(this, "debe introducir el nombre del representante", Toast.LENGTH_SHORT).show();
-        }
+              if(cantidad != 0){
+                  Toast.makeText(this, "Reserva cancelada exitosamente", Toast.LENGTH_SHORT).show();
+              }else{
+                  Toast.makeText(this, "la Reserva no se pudo cancelar", Toast.LENGTH_SHORT).show();
+              }
+          }else {
+              Toast.makeText(this, "debe Buscar una reserva", Toast.LENGTH_SHORT).show();
+          }
 
       }
 
@@ -212,7 +216,7 @@ public class Editar_reservas extends AppCompatActivity {
         AdminSqlite objsql = new AdminSqlite(this);
         SQLiteDatabase db = objsql.getWritableDatabase();
 
-
+        String name =etnombre.getText().toString();
         String asistentes= etAsistentes.getText().toString();
         String fecha = etFecha.getText().toString();
         String  hora= etHora.getText().toString();
@@ -220,28 +224,19 @@ public class Editar_reservas extends AppCompatActivity {
 
         if (!asistentes.isEmpty() && !fecha.isEmpty() && !hora.isEmpty()){
 
-            Cursor fila = db.rawQuery("select nombre from usuarios where id="+id, null);
-            if(fila.moveToFirst()){
-                String name=fila.getString(0);
-                db.close();
-            }
-
             ContentValues registro = new ContentValues();
 
-            registro.put("asistentes",asistentes);
-            registro.put("Fecha",fecha);
+            registro.put("personas",asistentes);
+            registro.put("dia",fecha);
             registro.put("Hora",hora);
 
-            int cantidad = db.update("usuarios", registro, "nombre=" + etnombre.getText()+"and id="+id  , null);
+            int cantidad = db.update("usuarios", registro, "nombre='" + name +"'and id='"+id+"'"  , null);
             db.close();
 
-
-            if(cantidad == 1){
+            if(cantidad != 0){
                 Toast.makeText(this, "Reserva modificada exitosamente", Toast.LENGTH_SHORT).show();
-
-
             }else{
-                Toast.makeText(this, "la Reserva no existe", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "la Reserva no se pudo actualizar", Toast.LENGTH_SHORT).show();
             }
         }else {
             Toast.makeText(this, "debe llenar todos los campos", Toast.LENGTH_SHORT).show();

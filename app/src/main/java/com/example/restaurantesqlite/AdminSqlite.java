@@ -15,7 +15,7 @@ public class AdminSqlite extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase DataBase) {
-        DataBase.execSQL("create table usuarios(id integer PRIMARY KEY autoincrement, nombre text, contraseña text,celular integer, email text, asistentes text ,dia text,hora text)");
+        DataBase.execSQL("create table usuarios(id INTEGER PRIMARY KEY autoincrement, nombre text, contraseña text,celular INTEGER, email text,dia text, hora text, personas text)");
     }
 
 

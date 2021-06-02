@@ -50,7 +50,6 @@ public class Registrar extends AppCompatActivity {
             registro.put("email",correo);
 
 
-
             db.insert("usuarios",null,registro);
 
             db.close();
